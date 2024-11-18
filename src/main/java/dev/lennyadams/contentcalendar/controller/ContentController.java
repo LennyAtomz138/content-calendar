@@ -41,7 +41,7 @@ public class ContentController {
      * Adds a piece of content to the system.
      * @param content a piece of content to be added to the system
      */
-    @ResponseStatus(HttpStatus.CREATED) // Returns `201 Created` HTTP status code.
+    @ResponseStatus(HttpStatus.CREATED) // Returns `201 Created` upon successful creation.
     @PostMapping("")
     public void create(@RequestBody Content content) {
     // @RequestBody tells Spring that the content will be sent as a request body.
@@ -61,6 +61,20 @@ public class ContentController {
         return repository.findById(id)
                 // ...otherwise throw a 404 error.
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Content not found!"));
+    }
+
+    /**
+     * Updates the piece of content (if it exists) that matches the `id`.
+     * @param content the piece of content to be updated
+     * @param id the `id` of the piece of content to be updated
+     */
+    @ResponseStatus(HttpStatus.NO_CONTENT) // Returns `204 No Content` upon successful update.
+    @PutMapping("/{id}")
+    public void update(@RequestBody Content content, @PathVariable Integer id) {
+        if (!repository.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Content not found!");
+        }
+        repository.save(content);
     }
 
 }

@@ -37,6 +37,18 @@ public class ContentCollectionRepository {
      * @param content a piece of content to be saved to the system
      */
     public void save(Content content) {
+        // If the content already exists, remove it before adding updated content to the system.
+        contentList.removeIf(c -> c.id().equals(content.id()));
+        // Otherwise, simply add the content to the system.
         contentList.add(content);
+    }
+
+    /**
+     * Checks if a piece of content exists under a given ID.
+     * @param id a piece of content to be checked within the system
+     * @return true if there exists a piece of content in the system that matches the given ID
+     */
+    public boolean existsById(Integer id) {
+        return contentList.stream().filter(c -> c.id().equals(id)).count() == 1;
     }
 }
