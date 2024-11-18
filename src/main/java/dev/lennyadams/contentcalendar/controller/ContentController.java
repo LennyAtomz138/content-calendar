@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController // Tells Spring: create instance and add to Application Context.
 @RequestMapping("/api/content") // Tells Spring: route calls to this URI to this Controller.
