@@ -41,6 +41,7 @@ public class ContentController {
      * Adds a piece of content to the system.
      * @param content a piece of content to be added to the system
      */
+    @ResponseStatus(HttpStatus.CREATED) // Returns `201 Created` HTTP status code.
     @PostMapping("")
     public void create(@RequestBody Content content) {
     // @RequestBody tells Spring that the content will be sent as a request body.
