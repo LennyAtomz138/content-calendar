@@ -1,7 +1,9 @@
 package dev.lennyadams.contentcalendar.repository;
 
 import dev.lennyadams.contentcalendar.model.Content;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,5 +52,14 @@ public class ContentCollectionRepository {
      */
     public boolean existsById(Integer id) {
         return contentList.stream().filter(c -> c.id().equals(id)).count() == 1;
+    }
+
+    /**
+     * Removes content from the system that matches the ID.
+     * @param id the identifier of the content to be removed
+     */
+    public void delete(Integer id) {
+        // If there is content that matches the ID, remove it from the system.
+        contentList.removeIf(c -> c.id().equals(id));
     }
 }

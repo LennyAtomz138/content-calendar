@@ -77,4 +77,13 @@ public class ContentController {
         repository.save(content);
     }
 
+    /**
+     * Removes content from the system that matches the given ID.
+     * @param id the identifier of the content to be removed from the system
+     */
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Integer id) {
+        repository.delete(id);
+    }
 }
