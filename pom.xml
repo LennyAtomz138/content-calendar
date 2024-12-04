@@ -30,18 +30,26 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
+		<!--Fundamental Libraries-->
 		<dependency>
 			<!--Provides web support libraries-->
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<!--Provides test support libraries-->
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<!--Provides data validation libraries-->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
+		<!--Bug Fix Libraries-->
 		<dependency>
 			<!--Bumped version to 2.10.0 to resolve CVE-2024-31573-->
 			<groupId>org.xmlunit</groupId>
