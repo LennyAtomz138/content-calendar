@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController // Tells Spring: create instance and add to Application Context.
 @RequestMapping("/api/content") // Tells Spring: route calls to this URI to this Controller.
+@CrossOrigin("http://localhost:5173/") // Only allow `my-vanilla-js-frontend` to fetch from this server.
 public class ContentController {
 
     private final ContentCollectionRepository repository;
