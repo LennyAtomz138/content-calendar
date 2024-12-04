@@ -34,8 +34,7 @@ public class ContentController {
         return repository.findAll();
     }
 
-    // TODO: Make CRUD endpoints: Create, Read, Update, Delete
-
+    // CREATE
     /**
      * Adds a piece of content to the system.
      * @param content a piece of content to be added to the system
@@ -47,6 +46,7 @@ public class ContentController {
         repository.save(content);
     }
 
+    // READ
     /**
      * Finds a piece of content in the system by ID.
      * @param id identifier of a given piece of content
@@ -62,6 +62,7 @@ public class ContentController {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Content not found!"));
     }
 
+    // UPDATE
     /**
      * Updates the piece of content (if it exists) that matches the `id`.
      * @param content the piece of content to be updated
@@ -76,6 +77,7 @@ public class ContentController {
         repository.save(content);
     }
 
+    // DELETE
     /**
      * Removes content from the system that matches the given ID.
      * @param id the identifier of the content to be removed from the system
