@@ -29,7 +29,6 @@ public record Content(
 
         Type contentType,
 
-        @NotBlank
         LocalDateTime dateCreated,
 
         LocalDateTime dateUpdated,

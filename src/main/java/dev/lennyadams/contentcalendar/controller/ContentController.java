@@ -2,6 +2,7 @@ package dev.lennyadams.contentcalendar.controller;
 
 import dev.lennyadams.contentcalendar.model.Content;
 import dev.lennyadams.contentcalendar.repository.ContentCollectionRepository;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -37,12 +38,12 @@ public class ContentController {
 
     // CREATE
     /**
-     * Adds a piece of content to the system.
-     * @param content a piece of content to be added to the system
+     * Adds a valid piece of content to the system.
+     * @param content a piece of content that is received from the request body and then validated
      */
     @ResponseStatus(HttpStatus.CREATED) // Returns `201 Created` upon successful creation.
     @PostMapping("")
-    public void create(@RequestBody Content content) {
+    public void create(@Valid @RequestBody Content content) {
     // @RequestBody tells Spring that the content will be sent as a request body.
         repository.save(content);
     }
