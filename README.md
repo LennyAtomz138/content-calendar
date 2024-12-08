@@ -5,9 +5,9 @@
 A REST API for the dynamic updating of content to a calendar.
 
 ## Install
-Download remote repositories to your local repository.
+Download remote repositories to your local machine.
 
-There are 2 components to this project, and they are each stored within a separate repository:
+There are 2 components to this project, and they are each stored within their own repositories:
 1. Front-End: [my-vanilla-js-frontend](https://github.com/LennyAtomz138/my-vanilla-js-frontend.git)
 2. Back-End: [content-calendar](https://github.com/LennyAtomz138/content-calendar/)
 
